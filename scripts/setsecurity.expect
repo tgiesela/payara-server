@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+spawn /opt/payara41/bin/asadmin --user admin change-admin-password
+expect "Enter the admin password>"
+send -- "\r"
+expect "Enter the new admin password>"
+send -- "$env(PAYARA_ADMIN_PASSWORD)\r"
+expect "Enter the new admin password again>"
+send -- "$env(PAYARA_ADMIN_PASSWORD)\r"
+expect eof
+
+spawn /opt/payara41/bin/asadmin enable-secure-admin --port 4848
+expect "Enter admin user name>"
+send -- "admin\r"
+expect "Enter admin password for user"
+send -- "$env(PAYARA_ADMIN_PASSWORD)\r"
+expect eof
+

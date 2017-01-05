@@ -1,0 +1,8 @@
+ <jdbc-connection-pool driver-classname="com.mysql.jdbc.Driver" name="verzuimDB" res-type="java.sql.Driver">
+      <property name="password" value="<mysql-password>"></property>
+      <property name="user" value="<mysql-user>"></property>
+      <property name="URL" value="jdbc:mysql://<mysql-server>:3306/verzuim"></property>
+      <property name="useSSL" value="false"></property>
+ </jdbc-connection-pool>
+ <jdbc-resource pool-name="verzuimDB" jndi-name="jdbc/verzuim"></jdbc-resource>
+
