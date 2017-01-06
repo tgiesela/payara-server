@@ -23,6 +23,7 @@ appSetup () {
     sed -i "s/<mysql-server>/${MYSQL_SERVER}/g" ${PAYARA_DIR}/domains/domain1/config/domain.xml
 
     touch /opt/payara41/glassfish/domains/.alreadysetup
+
 }
 
 appStart () {

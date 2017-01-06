@@ -26,7 +26,7 @@ docker run \
 	${CUSTOMNETWORK} \
 	-p:4848:4848 \
 	-d \
-	tonny/payara:v0.1 
+	tgiesela/payara:v0.1 
 
 
 
