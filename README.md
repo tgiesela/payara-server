@@ -5,7 +5,7 @@ Payara project for docker
 
 To configure the container you can add:
 ```
-	drivers to to the `driver/` folder
+	drivers to the `driver/` folder
 	ear/war files to the `apps/` folder (for autodeply)
 ```
 Download the payara version from the [Payara website](http://www.payara.fish/all_downloads)
