@@ -36,6 +36,12 @@ ADD config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD scripts/setsecurity.expect /tmp/
 ADD scripts/init.sh /init.sh
 
+# Additional things for Letsencrypt certificates
+RUN apt-get install -y git
+RUN cd /home && git clone https://github.com/letsencrypt/letsencrypt
+ADD scripts/installcertificate.sh /home/
+ADD scripts/renewcertificate.sh /home/
+
 RUN apt-get clean
 
 RUN chmod 755 /init.sh

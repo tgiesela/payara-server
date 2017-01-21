@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PAYARA_DIR=/opt/payara41/glassfish/
-set -e
+#set -e
 
 info () {
     echo "[INFO] $@"
@@ -21,6 +21,11 @@ appSetup () {
     sed -i "s/<mysql-user>/${MYSQL_USER}/g" ${PAYARA_DIR}/domains/domain1/config/domain.xml
     sed -i "s/<mysql-password>/${MYSQL_PASSWORD}/g" ${PAYARA_DIR}/domains/domain1/config/domain.xml
     sed -i "s/<mysql-server>/${MYSQL_SERVER}/g" ${PAYARA_DIR}/domains/domain1/config/domain.xml
+
+    cd /home/letsencrypt/
+    ./letsencrypt-auto certonly --standalone -w /home -d ${WEBURL} --preferred-challenges http -m ${EMAIL} --agree-tos
+    cd /home
+    ./installcertificate.sh ${WEBURL}
 
     touch /opt/payara41/glassfish/domains/.alreadysetup
 
