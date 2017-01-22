@@ -64,6 +64,5 @@ echo ""
 echo "- Restarting Glassfish Service"
 echo ""
 
-${INSTALLDIR}/bin/asadmin stop-domain 
-${INSTALLDIR}/bin/asadmin start-domain
+${INSTALLDIR}/bin/asadmin restart-domain
 
