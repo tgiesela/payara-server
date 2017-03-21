@@ -40,6 +40,7 @@ docker run \
 	-p:4848:4848 \
 	-p:443:8181 \
 	-p:80:80 \
+	-e TZ=Europe/Amsterdam \
 	-d \
 	tgiesela/payara:v0.1 
 
