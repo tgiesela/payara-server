@@ -42,6 +42,12 @@ RUN cd /home && git clone https://github.com/letsencrypt/letsencrypt
 ADD scripts/installcertificate.sh /home/
 ADD scripts/renewcertificate.sh /home/
 
+# Additional stuff for true-type fonts required by JasperReports
+RUN apt-get install -y update-notifier-common apt-transport-https gdebi-core
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+ADD ttf-mscorefonts-installer_3.4+nmu1ubuntu2_all.deb /tmp/
+RUN gdebi --non-interactive /tmp/ttf-mscorefonts-installer_3.4+nmu1ubuntu2_all.deb
+
 RUN apt-get clean
 
 RUN chmod 755 /init.sh
